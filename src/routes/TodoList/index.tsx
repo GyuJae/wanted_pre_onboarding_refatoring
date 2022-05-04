@@ -23,12 +23,12 @@ const INIT_TODO = [
 function TodoList() {
   const [todoList, setTodoList] = useState(INIT_TODO)
 
-  const handleAddClick = (e) => {
+  const handleAddClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     // eslint-disable-next-line no-console
     console.log('handleAddClick', e)
   }
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { dataset, checked } = e.currentTarget
     const { id } = dataset
 

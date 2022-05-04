@@ -1,12 +1,11 @@
 import styles from './Routes.module.scss'
-import TodoList from './TodoList'
 
-function App() {
+function Routes() {
   return (
     <div className={styles.app}>
-      <TodoList />
+      <div>Hello World</div>
     </div>
   )
 }
 
-export default App
+export default Routes

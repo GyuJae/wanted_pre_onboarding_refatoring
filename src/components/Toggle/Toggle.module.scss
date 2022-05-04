@@ -1,0 +1,38 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/mixins/flexbox';
+
+.container {
+  display: flex;
+  background-color: colors.$GRAYD;
+  width: 400px;
+  height: 60px;
+  justify-content: space-between;
+  border-radius: 60px;
+  border: 4px colors.$GRAYD solid;
+  gap: 2px;
+  position: relative;
+  .item {
+    @include flexbox.flexbox(center);
+    width: 100%;
+    font-weight: 600;
+    z-index: 10;
+    cursor: pointer;
+    color: colors.$GRAYA;
+    &.selected {
+      color: colors.$BLACK;
+    }
+  }
+  .box {
+    position: absolute;
+    width: 50%;
+    border-radius: 60px;
+    height: 100%;
+    background-color: white;
+    margin: auto;
+    transition: all 0.3s linear;
+    transform: translateX(0%);
+    &.xEnd {
+      transform: translateX(100%);
+    }
+  }
+}

@@ -1,0 +1,27 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/mixins/flexbox';
+
+.container {
+  width: 450px;
+  .item_container {
+    @include flexbox.flexbox(between, center);
+    .item {
+      @include flexbox.flexbox(center, center);
+      width: 100%;
+      font-size: 20px;
+      padding: 10px 0px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+  }
+  .indicator_container {
+    width: 100%;
+    height: 6px;
+    background-color: colors.$GRAYD;
+    .indicator {
+      height: 100%;
+      width: 33.333333333333%;
+      background-color: colors.$TEAL;
+    }
+  }
+}

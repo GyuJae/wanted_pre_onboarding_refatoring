@@ -1,0 +1,108 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/mixins/flexbox';
+
+.container {
+  width: 500px;
+  @include flexbox.flexbox(center, center);
+  flex-direction: column;
+  row-gap: 15px;
+  .value_container {
+    @include flexbox.flexbox(end, center);
+    width: 80%;
+    height: 50px;
+    border-radius: 5px;
+    background-color: colors.$GRAYE;
+    padding: 0px 20px;
+    .value_container_value {
+      font-weight: 700;
+      margin-right: 8px;
+    }
+    .percentage {
+      color: colors.$GRAYA;
+    }
+  }
+
+  .range_container {
+    position: relative;
+    width: 100%;
+    .myRange {
+      width: 100%;
+      background: transparent;
+      appearance: none;
+      height: 4px;
+      border-radius: 50%;
+      z-index: 50;
+
+      &:focus {
+        box-shadow: none;
+      }
+    }
+    .myRange::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 23px;
+      height: 23px;
+      border-radius: 50%;
+      background: colors.$TEAL;
+      cursor: pointer;
+      //overflow: hidden;
+      z-index: 100;
+      &.myRange_GRAYA {
+        background: colors.$GRAYA;
+        width: 23px;
+        height: 23px;
+      }
+    }
+
+    .myRange::-moz-range-thumb {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: colors.$TEAL;
+      cursor: pointer;
+      z-index: 50;
+    }
+    .range_input_container {
+      position: absolute;
+      width: 100%;
+      background: transparent;
+      height: 10px;
+      z-index: 10;
+      top: 50%;
+      border-radius: 50%;
+      pointer-events: none;
+      .range_input_width {
+        pointer-events: none;
+        background-color: colors.$TEAL;
+        height: 10px;
+        //border-radius: 50%;
+        overflow: hidden;
+      }
+    }
+    .ball_range_container {
+      @include flexbox.flexbox(between, center);
+      pointer-events: none;
+      position: absolute;
+      background-color: colors.$GRAYA;
+      height: 10px;
+      top: 50%;
+
+      border-radius: 10px;
+      width: 100%;
+      z-index: 0;
+      .round_value {
+        border-radius: 50%;
+        width: 23px;
+        height: 23px;
+        background-color: colors.$GRAYA;
+        //overflow: hidden;
+        z-index: -10;
+        &.selected_round_value {
+          background-color: colors.$TEAL;
+        }
+      }
+    }
+  }
+}
+
+//bg-gray-200 h-2 absolute top-1/2 rounded-full -z-10 w-full flex justify-between items-center

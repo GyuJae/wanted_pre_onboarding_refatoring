@@ -12,9 +12,9 @@ function Tab() {
     <div className={styles.container}>
       <div className={styles.item_container}>
         {data.map((item, idx) => (
-          <div key={item} className={styles.item} tabIndex={idx} onClick={() => handleClick(idx)} role='button'>
+          <button key={item} className={styles.item} type='button' onClick={() => handleClick(idx)}>
             {item}
-          </div>
+          </button>
         ))}
       </div>
       <div className={styles.indicator_container}>

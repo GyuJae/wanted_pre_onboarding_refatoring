@@ -7,7 +7,7 @@ const data = ['기본', '상세']
 function Toggle() {
   const [dataItem, setDataItem] = useState<string>(data[0])
 
-  const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     const {
       currentTarget: { innerText },
     } = e
@@ -16,18 +16,17 @@ function Toggle() {
 
   return (
     <div className={styles.container}>
-      {data.map((item, index) => (
-        <div
+      {data.map((item) => (
+        <button
           key={item}
-          className={cx(styles.item, dataItem === item ? styles.selected : null)}
+          className={cx(styles.item, dataItem === item && styles.selected)}
+          type='button'
           onClick={handleClick}
-          role='button'
-          tabIndex={index}
         >
           {item}
-        </div>
+        </button>
       ))}
-      <div className={cx(styles.box, dataItem === data[1] ? styles.xEnd : null)} />
+      <div className={cx(styles.box, dataItem === data[1] && styles.xEnd)} />
     </div>
   )
 }

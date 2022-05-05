@@ -2,28 +2,33 @@ import { useState } from 'react'
 import { cx } from '../../styles'
 import styles from './Slider.module.scss'
 
-// interface IInputValue {
-//   value: string
-//   onClickValue: () => void
-// }
+interface IInputValue {
+  value: string
+  onClickValue: () => void
+}
 
-// const InputValue: React.FC<IInputValue> = ({ value, onClickValue }) => {
-//   return (
-//     <div
-//       onClick={onClickValue}
-//       className='w-12 rounded-3xl cursor-pointer py-1 flex justify-center items-center bg-gray-200 text-xs text-gray-500 hover:text-white hover:bg-teal-600'
-//     >
-//       {value}
-//     </div>
-//   )
-// }
+function InputValue({ value, onClickValue }: IInputValue) {
+  return (
+    <button onClick={onClickValue} className={styles.input_value} type='button'>
+      {value}
+    </button>
+  )
+}
 
 function RoundValue({ value, standard }: { value: number; standard: number }) {
-  return <div className={cx(value > standard ? styles.selected_round_value : null, styles.round_value)} />
+  return <div className={cx(value >= standard && styles.selected_round_value, styles.round_value)} />
 }
 
 function Slider() {
   const [rangeValue, setRangeValue] = useState<number>(0)
+
+  const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setRangeValue(+e.currentTarget.value)
+  }
+
+  const handleClickValue = (value: number) => {
+    setRangeValue(value)
+  }
 
   return (
     <div className={styles.container}>
@@ -38,9 +43,9 @@ function Slider() {
           max='100'
           list='number'
           step={1}
-          className={cx(rangeValue === 0 ? styles.myRange_GRAYA : null, styles.myRange)}
+          className={cx(rangeValue === 0 && styles.myRange_GRAYA, styles.myRange)}
           value={rangeValue}
-          onChange={(event) => setRangeValue(+event.target.value)}
+          onChange={handleChangeInput}
         />
         <div className={styles.range_input_container}>
           <div className={styles.range_input_width} style={{ width: `${rangeValue}%` }} />
@@ -52,6 +57,13 @@ function Slider() {
           <RoundValue value={rangeValue} standard={75} />
           <RoundValue value={rangeValue} standard={99} />
         </div>
+      </div>
+      <div className={styles.input_value_container}>
+        <InputValue value='0' onClickValue={() => handleClickValue(0)} />
+        <InputValue value='25' onClickValue={() => handleClickValue(25)} />
+        <InputValue value='50' onClickValue={() => handleClickValue(50)} />
+        <InputValue value='75' onClickValue={() => handleClickValue(75)} />
+        <InputValue value='100' onClickValue={() => handleClickValue(100)} />
       </div>
     </div>
   )

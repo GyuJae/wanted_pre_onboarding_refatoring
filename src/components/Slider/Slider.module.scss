@@ -5,7 +5,7 @@
   width: 500px;
   @include flexbox.flexbox(center, center);
   flex-direction: column;
-  row-gap: 15px;
+  row-gap: 25px;
   .value_container {
     @include flexbox.flexbox(end, center);
     width: 80%;
@@ -40,12 +40,12 @@
     .myRange::-webkit-slider-thumb {
       -webkit-appearance: none;
       appearance: none;
-      width: 23px;
-      height: 23px;
+      width: 28px;
+      height: 28px;
       border-radius: 50%;
       background: colors.$TEAL;
       cursor: pointer;
-      //overflow: hidden;
+      overflow: visible;
       z-index: 100;
       &.myRange_GRAYA {
         background: colors.$GRAYA;
@@ -61,6 +61,9 @@
       background: colors.$TEAL;
       cursor: pointer;
       z-index: 50;
+      &.myRange_GRAYA {
+        background: colors.$GRAYA;
+      }
     }
     .range_input_container {
       position: absolute;
@@ -75,7 +78,7 @@
         pointer-events: none;
         background-color: colors.$TEAL;
         height: 10px;
-        //border-radius: 50%;
+        border-radius: 10px;
         overflow: hidden;
       }
     }
@@ -103,6 +106,24 @@
       }
     }
   }
+  .input_value_container {
+    width: 105%;
+    @include flexbox.flexbox(between, center);
+    .input_value {
+      width: 48px;
+      border-radius: 8px;
+      cursor: pointer;
+      padding: 4px 0px;
+      @include flexbox.flexbox(center, center);
+      background-color: colors.$GRAYD;
+      color: colors.$GRAY6;
+      font-weight: 700;
+      &:hover {
+        color: colors.$WHITE;
+        background-color: colors.$TEAL;
+      }
+    }
+  }
 }
 
-//bg-gray-200 h-2 absolute top-1/2 rounded-full -z-10 w-full flex justify-between items-center
+// 'w-12 rounded-3xl cursor-pointer py-1 flex justify-center items-center bg-gray-200 text-xs text-gray-500 hover:text-white hover:bg-teal-600'

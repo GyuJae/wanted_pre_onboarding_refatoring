@@ -1,3 +1,4 @@
+import Input from '../components/Input'
 import Slider from '../components/Slider'
 import Tab from '../components/Tab'
 import Toggle from '../components/Toggle'
@@ -9,6 +10,7 @@ function Routes() {
       <Toggle />
       <Tab />
       <Slider />
+      <Input />
     </div>
   )
 }

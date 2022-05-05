@@ -27,12 +27,9 @@
     width: 100%;
     .myRange {
       width: 100%;
-      background: transparent;
-      appearance: none;
       height: 4px;
       border-radius: 50%;
-      z-index: 50;
-
+      z-index: 10000000;
       &:focus {
         box-shadow: none;
       }
@@ -40,18 +37,15 @@
     .myRange::-webkit-slider-thumb {
       -webkit-appearance: none;
       appearance: none;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: colors.$TEAL;
-      cursor: pointer;
-      overflow: visible;
-      z-index: 100;
-      &.myRange_GRAYA {
-        background: colors.$GRAYA;
-        width: 23px;
-        height: 23px;
-      }
+      width: 25px;
+      height: 25px;
+      // border-radius: 50%;
+      // background-color: colors.$TEAL;
+      // cursor: pointer;
+      // z-index: 100000000;
+      // &.myRange_GRAYA {
+      //   background-color: colors.$GRAYA;
+      // }
     }
 
     .myRange::-moz-range-thumb {
@@ -60,7 +54,7 @@
       border-radius: 50%;
       background: colors.$TEAL;
       cursor: pointer;
-      z-index: 50;
+      z-index: 150;
       &.myRange_GRAYA {
         background: colors.$GRAYA;
       }
@@ -68,18 +62,16 @@
     .range_input_container {
       position: absolute;
       width: 100%;
-      background: transparent;
       height: 10px;
       z-index: 10;
       top: 50%;
-      border-radius: 50%;
       pointer-events: none;
+      //overflow: hidden;
       .range_input_width {
         pointer-events: none;
         background-color: colors.$TEAL;
         height: 10px;
         border-radius: 10px;
-        overflow: hidden;
       }
     }
     .ball_range_container {

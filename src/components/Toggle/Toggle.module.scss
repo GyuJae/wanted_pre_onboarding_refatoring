@@ -5,16 +5,16 @@
   display: flex;
   background-color: colors.$GRAYD;
   width: 400px;
-  height: 60px;
   justify-content: space-between;
   border-radius: 60px;
   border: 4px colors.$GRAYD solid;
   gap: 2px;
   position: relative;
   .item {
-    @include flexbox.flexbox(center);
+    @include flexbox.flexbox(center, center);
     width: 100%;
     font-weight: 600;
+    height: 60px;
     z-index: 10;
     cursor: pointer;
     color: colors.$GRAYA;

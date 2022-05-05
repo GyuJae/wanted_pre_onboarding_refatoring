@@ -16,7 +16,15 @@ function InputValue({ value, onClickValue }: IInputValue) {
 }
 
 function RoundValue({ value, standard }: { value: number; standard: number }) {
-  return <div className={cx(value >= standard && styles.selected_round_value, styles.round_value)} />
+  return (
+    <div
+      className={cx(
+        value >= standard && value !== 0 && styles.selected_round_value,
+
+        styles.round_value
+      )}
+    />
+  )
 }
 
 function Slider() {
@@ -48,7 +56,10 @@ function Slider() {
           onChange={handleChangeInput}
         />
         <div className={styles.range_input_container}>
-          <div className={styles.range_input_width} style={{ width: `${rangeValue}%` }} />
+          <div
+            className={cx(styles.range_input_width, rangeValue === 0 && styles.myRange_GRAYA)}
+            style={{ width: `${rangeValue}%` }}
+          />
         </div>
         <div className={styles.ball_range_container}>
           <RoundValue value={rangeValue} standard={0} />

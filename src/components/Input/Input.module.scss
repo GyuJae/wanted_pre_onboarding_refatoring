@@ -1,45 +1,52 @@
 @use '/src/styles/constants/colors';
 
 .wrapper {
-  width: 450px;
-  row-gap: 15px;
   display: flex;
   flex-direction: column;
-  .input_container {
+  row-gap: 15px;
+  width: 450px;
+
+  .inputContainer {
     display: flex;
     flex-direction: column;
     row-gap: 8px;
+
     label {
       font-size: 15px;
       color: colors.$GRAY3;
     }
+
     div {
       position: relative;
       width: 100%;
+
       input {
+        width: 100%;
         padding: 8px;
         background-color: colors.$GRAYE;
-        width: 100%;
         border-radius: 5px;
-        box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+        box-shadow: rgba(0, 0, 0, 5%) 0 6px 24px 0, rgba(0, 0, 0, 8%) 0 0 0 1px;
       }
-      .icon_container {
+
+      .iconContainer {
         svg {
           position: absolute;
           top: -28px;
           right: 2%;
-          cursor: pointer;
           color: colors.$GRAYA;
-          &.color_correct {
+          cursor: pointer;
+
+          &.colorCorrect {
             color: colors.$TEAL;
           }
         }
       }
     }
+
     span {
       font-size: 15px;
-      color: colors.$RED;
       font-weight: 600;
+      color: colors.$RED;
     }
   }
 }

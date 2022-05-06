@@ -2,59 +2,65 @@
 @use '/src/styles/mixins/flexbox';
 
 .wrapper {
-  width: 450px;
   row-gap: 8px;
+  width: 450px;
+
   .container {
     @include flexbox.flexbox(between, center);
     width: 100%;
     height: 64px;
-    background-color: colors.$GRAYE;
+    padding: 0 16px;
+    margin-bottom: 20px;
     font-size: large;
     font-weight: 600;
-    margin-bottom: 20px;
-    padding: 0px 16px;
+    color: colors.$GRAY6;
     cursor: pointer;
+    background-color: colors.$GRAYE;
     border: 2px solid;
     border-radius: 5px;
-    color: colors.$GRAY6;
   }
+
   .searchContainer {
     position: relative;
+
     svg {
-      width: 24px;
-      height: 24px;
       position: absolute;
       top: 13px;
       left: 8px;
+      width: 24px;
+      height: 24px;
       color: colors.$GRAY6;
     }
+
     input {
-      background-color: colors.$GRAYE;
-      border: 2px solid;
-      color: colors.$GRAY6;
       width: 100%;
       height: 50px;
-      border-top-left-radius: 5px;
-      border-top-right-radius: 5px;
       padding-right: 8px;
       padding-left: 40px;
       font-size: large;
-    }
-    ul {
+      color: colors.$GRAY6;
       background-color: colors.$GRAYE;
       border: 2px solid;
-      border-top: 0px;
-      row-gap: 10px;
-      border-bottom-left-radius: 5px;
-      border-bottom-right-radius: 5px;
-      color: colors.$GRAY6;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+    }
+
+    ul {
       @include flexbox.flexbox(start, start);
       flex-direction: column;
+      row-gap: 10px;
       padding: 4px 10px;
+      color: colors.$GRAY6;
+      background-color: colors.$GRAYE;
+      border: 2px solid;
+      border-top: 0;
+      border-bottom-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+
       button {
         font-size: large;
-        color: colors.$GRAY6;
         font-weight: 500;
+        color: colors.$GRAY6;
         cursor: pointer;
       }
     }

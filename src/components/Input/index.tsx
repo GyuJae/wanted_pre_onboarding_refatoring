@@ -36,7 +36,7 @@ function Input() {
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.input_container}>
+      <div className={styles.inputContainer}>
         <label htmlFor='email'>Email</label>
         <div>
           <input
@@ -49,13 +49,13 @@ function Input() {
             onChange={handleChangeEmail}
             onBlur={handleBlurEmail}
           />
-          <div className={styles.icon_container}>
-            <CheckIcon className={cx(emailCorrect && styles.color_correct)} />
+          <div className={styles.iconContainer}>
+            <CheckIcon className={cx(emailCorrect && styles.colorCorrect)} />
           </div>
         </div>
         {emailError && <span>{emailError}</span>}
       </div>
-      <div className={styles.input_container}>
+      <div className={styles.inputContainer}>
         <label htmlFor='password'>Password</label>
         <div>
           <input
@@ -66,9 +66,9 @@ function Input() {
             autoCapitalize='off'
             autoCorrect='off'
           />
-          <div className={styles.icon_container}>
+          <div className={styles.iconContainer}>
             <button type='button' onClick={handlePasswordButton}>
-              <EyeIcon className={cx(showPassword && styles.color_correct)} />
+              <EyeIcon className={cx(showPassword && styles.colorCorrect)} />
             </button>
           </div>
         </div>

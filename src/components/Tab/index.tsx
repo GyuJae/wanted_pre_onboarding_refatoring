@@ -10,14 +10,14 @@ function Tab() {
   }
   return (
     <div className={styles.container}>
-      <div className={styles.item_container}>
+      <div className={styles.itemContainer}>
         {data.map((item, idx) => (
           <button key={item} className={styles.item} type='button' onClick={() => handleClick(idx)}>
             {item}
           </button>
         ))}
       </div>
-      <div className={styles.indicator_container}>
+      <div className={styles.indicatorContainer}>
         <div
           className={styles.indicator}
           style={{

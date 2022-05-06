@@ -3,24 +3,28 @@
 
 .container {
   width: 450px;
-  .item_container {
+
+  .itemContainer {
     @include flexbox.flexbox(between, center);
+
     .item {
       @include flexbox.flexbox(center, center);
       width: 100%;
+      padding: 10px 0;
       font-size: 20px;
-      padding: 10px 0px;
       font-weight: 600;
       cursor: pointer;
     }
   }
-  .indicator_container {
+
+  .indicatorContainer {
     width: 100%;
     height: 6px;
     background-color: colors.$GRAYD;
+
     .indicator {
+      width: 33.3333%;
       height: 100%;
-      width: 33.333333333333%;
       background-color: colors.$TEAL;
     }
   }

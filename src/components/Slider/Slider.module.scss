@@ -2,38 +2,44 @@
 @use '/src/styles/mixins/flexbox';
 
 .container {
-  width: 500px;
-  @include flexbox.flexbox(center, center);
   flex-direction: column;
   row-gap: 25px;
-  .value_container {
+  width: 500px;
+  @include flexbox.flexbox(center, center);
+
+  .valueContainer {
     @include flexbox.flexbox(end, center);
     width: 80%;
     height: 50px;
-    border-radius: 5px;
+    padding: 0 20px;
     background-color: colors.$GRAYE;
-    padding: 0px 20px;
-    .value_container_value {
-      font-weight: 700;
+    border-radius: 5px;
+
+    .valueContainerValue {
       margin-right: 8px;
+      font-weight: 700;
     }
+
     .percentage {
       color: colors.$GRAYA;
     }
   }
 
-  .range_container {
+  .rangeContainer {
     position: relative;
     width: 100%;
+
     .myRange {
+      z-index: 10000000;
       width: 100%;
       height: 4px;
       border-radius: 50%;
-      z-index: 10000000;
+
       &:focus {
         box-shadow: none;
       }
     }
+
     .myRange::-webkit-slider-thumb {
       -webkit-appearance: none;
       appearance: none;
@@ -49,67 +55,73 @@
     }
 
     .myRange::-moz-range-thumb {
+      z-index: 150;
       width: 30px;
       height: 30px;
-      border-radius: 50%;
-      background: colors.$TEAL;
       cursor: pointer;
-      z-index: 150;
-      &.myRange_GRAYA {
+      background: colors.$TEAL;
+      border-radius: 50%;
+
+      &.myRangeGRAYA {
         background: colors.$GRAYA;
       }
     }
-    .range_input_container {
+
+    .rangeInputContainer {
       position: absolute;
+      top: 50%;
+      z-index: 10;
       width: 100%;
       height: 10px;
-      z-index: 10;
-      top: 50%;
       pointer-events: none;
-      //overflow: hidden;
-      .range_input_width {
+
+      .rangeInputWidth {
+        height: 10px;
         pointer-events: none;
         background-color: colors.$TEAL;
-        height: 10px;
         border-radius: 10px;
       }
     }
-    .ball_range_container {
-      @include flexbox.flexbox(between, center);
-      pointer-events: none;
-      position: absolute;
-      background-color: colors.$GRAYA;
-      height: 10px;
-      top: 50%;
 
-      border-radius: 10px;
-      width: 100%;
+    .ballRangeContainer {
+      @include flexbox.flexbox(between, center);
+      position: absolute;
+      top: 50%;
       z-index: 0;
-      .round_value {
-        border-radius: 50%;
+      width: 100%;
+      height: 10px;
+      pointer-events: none;
+      background-color: colors.$GRAYA;
+      border-radius: 10px;
+
+      .roundValue {
+        z-index: -10;
         width: 23px;
         height: 23px;
         background-color: colors.$GRAYA;
-        //overflow: hidden;
-        z-index: -10;
-        &.selected_round_value {
+        border-radius: 50%;
+
+        &.selectedRoundValue {
           background-color: colors.$TEAL;
         }
       }
     }
   }
-  .input_value_container {
+
+  .inputValueContainer {
     width: 105%;
     @include flexbox.flexbox(between, center);
-    .input_value {
+
+    .inputValue {
       width: 48px;
-      border-radius: 8px;
-      cursor: pointer;
-      padding: 4px 0px;
-      @include flexbox.flexbox(center, center);
-      background-color: colors.$GRAYD;
-      color: colors.$GRAY6;
+      padding: 4px 0;
       font-weight: 700;
+      color: colors.$GRAY6;
+      cursor: pointer;
+      background-color: colors.$GRAYD;
+      border-radius: 8px;
+      @include flexbox.flexbox(center, center);
+
       &:hover {
         color: colors.$WHITE;
         background-color: colors.$TEAL;
@@ -117,5 +129,3 @@
     }
   }
 }
-
-// 'w-12 rounded-3xl cursor-pointer py-1 flex justify-center items-center bg-gray-200 text-xs text-gray-500 hover:text-white hover:bg-teal-600'

@@ -9,7 +9,7 @@ interface IInputValue {
 
 function InputValue({ value, onClickValue }: IInputValue) {
   return (
-    <button onClick={onClickValue} className={styles.input_value} type='button'>
+    <button onClick={onClickValue} className={styles.inputValue} type='button'>
       {value}
     </button>
   )
@@ -19,9 +19,9 @@ function RoundValue({ value, standard }: { value: number; standard: number }) {
   return (
     <div
       className={cx(
-        value >= standard && value !== 0 && styles.selected_round_value,
+        value >= standard && value !== 0 && styles.selectedRoundValue,
 
-        styles.round_value
+        styles.roundValue
       )}
     />
   )
@@ -40,28 +40,28 @@ function Slider() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.value_container}>
-        <span className={styles.value_container_value}>{rangeValue}</span>
+      <div className={styles.valueContainer}>
+        <span className={styles.valueContainerValue}>{rangeValue}</span>
         <span className={styles.percentage}>%</span>
       </div>
-      <div className={styles.range_container}>
+      <div className={styles.rangeContainer}>
         <input
           type='range'
           min='0'
           max='100'
           list='number'
           step={1}
-          className={cx(rangeValue === 0 && styles.myRange_GRAYA, styles.myRange)}
+          className={cx(rangeValue === 0 && styles.myRangeGRAYA, styles.myRange)}
           value={rangeValue}
           onChange={handleChangeInput}
         />
-        <div className={styles.range_input_container}>
+        <div className={styles.rangeInputContainer}>
           <div
-            className={cx(styles.range_input_width, rangeValue === 0 && styles.myRange_GRAYA)}
+            className={cx(styles.rangeInputWidth, rangeValue === 0 && styles.myRangeGRAYA)}
             style={{ width: `${rangeValue}%` }}
           />
         </div>
-        <div className={styles.ball_range_container}>
+        <div className={styles.ballRangeContainer}>
           <RoundValue value={rangeValue} standard={0} />
           <RoundValue value={rangeValue} standard={25} />
           <RoundValue value={rangeValue} standard={50} />
@@ -69,7 +69,7 @@ function Slider() {
           <RoundValue value={rangeValue} standard={99} />
         </div>
       </div>
-      <div className={styles.input_value_container}>
+      <div className={styles.inputValueContainer}>
         <InputValue value='0' onClickValue={() => handleClickValue(0)} />
         <InputValue value='25' onClickValue={() => handleClickValue(25)} />
         <InputValue value='50' onClickValue={() => handleClickValue(50)} />

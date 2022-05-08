@@ -17,7 +17,6 @@ const Input = () => {
   }
 
   const handleBlurEmail = () => {
-    
     if (emailValue) {
       if (EMAIL_REG_TEST.test(emailValue)) {
         setEmailError(null)
@@ -30,7 +29,6 @@ const Input = () => {
   const handlePasswordButton = () => setShowPassword((prev) => !prev)
 
   useEffect(() => {
-    
     if (emailValue) {
       setEmailCorrect(EMAIL_REG_TEST.test(emailValue))
     }
@@ -52,7 +50,7 @@ const Input = () => {
             onBlur={handleBlurEmail}
           />
           <div className={styles.iconContainer}>
-            <CheckIcon className={cx(emailCorrect && styles.colorCorrect)} />
+            <CheckIcon className={cx({ [styles.colorCorrect]: emailCorrect })} />
           </div>
         </div>
         {emailError && <span>{emailError}</span>}
@@ -70,7 +68,7 @@ const Input = () => {
           />
           <div className={styles.iconContainer}>
             <button type='button' onClick={handlePasswordButton}>
-              <EyeIcon className={cx(showPassword && styles.colorCorrect)} />
+              <EyeIcon className={cx({ [styles.colorCorrect]: showPassword })} />
             </button>
           </div>
         </div>

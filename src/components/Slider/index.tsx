@@ -21,7 +21,7 @@ const InputValue = ({ value, onClickValue }: IInputValue) => {
 }
 
 const RoundValue = ({ value, standard }: IRoundValue) => {
-  return <div className={cx(value >= standard && value !== 0 && styles.selectedRoundValue, styles.roundValue)} />
+  return <div className={cx({ [styles.selectedRoundValue]: value >= standard && value !== 0 }, styles.roundValue)} />
 }
 
 const Slider = () => {
@@ -48,13 +48,13 @@ const Slider = () => {
           max='100'
           list='number'
           step={1}
-          className={cx(rangeValue === 0 && styles.myRangeGRAYA, styles.myRange)}
+          className={cx({ [styles.myRangeGRAYA]: rangeValue === 0 }, styles.myRange)}
           value={rangeValue}
           onChange={handleChangeInput}
         />
         <div className={styles.rangeInputContainer}>
           <div
-            className={cx(styles.rangeInputWidth, rangeValue === 0 && styles.myRangeGRAYA)}
+            className={cx(styles.rangeInputWidth, { [styles.myRangeGRAYA]: rangeValue === 0 })}
             style={{ width: `${rangeValue}%` }}
           />
         </div>

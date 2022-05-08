@@ -19,14 +19,14 @@ const Toggle = () => {
       {data.map((item) => (
         <button
           key={item}
-          className={cx(styles.item, dataItem === item && styles.selected)}
+          className={cx(styles.item, { [styles.selected]: dataItem === item })}
           type='button'
           onClick={handleClick}
         >
           {item}
         </button>
       ))}
-      <div className={cx(styles.box, dataItem === data[1] && styles.xEnd)} />
+      <div className={cx(styles.box, { [styles.xEnd]: dataItem === data[1] })} />
     </div>
   )
 }

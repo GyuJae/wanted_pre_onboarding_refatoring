@@ -3,7 +3,7 @@ import styles from './Tab.module.scss'
 
 const data = ['감자', '고구마', '카레라이스']
 
-function Tab() {
+const Tab = () => {
   const [selectedIdx, setSelectedIdx] = useState<number>(0)
   const handleClick = (idx: number) => {
     setSelectedIdx(idx)

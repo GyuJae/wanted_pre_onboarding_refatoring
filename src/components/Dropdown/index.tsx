@@ -12,7 +12,7 @@ const data = [
   'BANDUSD.PERP',
 ]
 
-function Dropdown() {
+const Dropdown = () => {
   const [value, setValue] = useState<string>(data[0])
   const [showSearch, setShowSearch] = useState<boolean>(false)
   const [searchValue, setSearchValue] = useState<string>('')

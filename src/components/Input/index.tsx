@@ -3,7 +3,7 @@ import styles from './Input.module.scss'
 import { CheckIcon, EyeIcon } from '../../assets/svgs'
 import { cx } from '../../styles'
 
-function Input() {
+const Input = () => {
   const [emailValue, setEmailValue] = useState<string | null>()
   const [emailError, setEmailError] = useState<string | null>()
   const [emailCorrect, setEmailCorrect] = useState<boolean>(false)

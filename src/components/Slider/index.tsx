@@ -7,7 +7,12 @@ interface IInputValue {
   onClickValue: () => void
 }
 
-function InputValue({ value, onClickValue }: IInputValue) {
+interface IRoundValue {
+  value: number
+  standard: number
+}
+
+const InputValue = ({ value, onClickValue }: IInputValue) => {
   return (
     <button onClick={onClickValue} className={styles.inputValue} type='button'>
       {value}
@@ -15,19 +20,11 @@ function InputValue({ value, onClickValue }: IInputValue) {
   )
 }
 
-function RoundValue({ value, standard }: { value: number; standard: number }) {
-  return (
-    <div
-      className={cx(
-        value >= standard && value !== 0 && styles.selectedRoundValue,
-
-        styles.roundValue
-      )}
-    />
-  )
+const RoundValue = ({ value, standard }: IRoundValue) => {
+  return <div className={cx(value >= standard && value !== 0 && styles.selectedRoundValue, styles.roundValue)} />
 }
 
-function Slider() {
+const Slider = () => {
   const [rangeValue, setRangeValue] = useState<number>(0)
 
   const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {

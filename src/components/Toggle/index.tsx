@@ -4,7 +4,7 @@ import styles from './Toggle.module.scss'
 
 const data = ['기본', '상세']
 
-function Toggle() {
+const Toggle = () => {
   const [dataItem, setDataItem] = useState<string>(data[0])
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {

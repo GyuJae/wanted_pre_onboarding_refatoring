@@ -3,6 +3,8 @@ import styles from './Input.module.scss'
 import { CheckIcon, EyeIcon } from '../../assets/svgs'
 import { cx } from '../../styles'
 
+const EMAIL_REG_TEST = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+
 const Input = () => {
   const [emailValue, setEmailValue] = useState<string | null>()
   const [emailError, setEmailError] = useState<string | null>()
@@ -15,7 +17,7 @@ const Input = () => {
   }
 
   const handleBlurEmail = () => {
-    const EMAIL_REG_TEST = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+    
     if (emailValue) {
       if (EMAIL_REG_TEST.test(emailValue)) {
         setEmailError(null)
@@ -28,7 +30,7 @@ const Input = () => {
   const handlePasswordButton = () => setShowPassword((prev) => !prev)
 
   useEffect(() => {
-    const EMAIL_REG_TEST = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+    
     if (emailValue) {
       setEmailCorrect(EMAIL_REG_TEST.test(emailValue))
     }
